@@ -19,6 +19,7 @@ const PageStarterName = (props) => {
 
     useLayoutEffect(() => {
 
+        //Se o usuário já cadastrou o nome eu pulo essa tela, e ja envio ele pra próxima
         if (user.name) {
             navigation.navigate('StarterDays', {
                 name: user.name
@@ -46,7 +47,6 @@ const PageStarterName = (props) => {
         dispatch(SET_NAME({
             name: name
         }));
-
 
         //Passando o parametro name via route.params.name lá na próxima pagina
         navigation.navigate('StarterDays', {

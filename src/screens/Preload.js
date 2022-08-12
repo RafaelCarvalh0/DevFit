@@ -8,16 +8,12 @@ const Preload = (props) => {
     const navigation = useNavigation();
     const route = useRoute();
     const user = useSelector(state => state.user);
-    console.log("[DEBUG]" + user.name);
+    //console.log("[DEBUG]" + user.name);
 
     // TEMPORARIO
-    // props.navigation.dispatch(StackActions.reset({
-    //     index: 0,
-    //     actions: [
-    //         NavigationActions.navigate({routeName:'StarterStack'})
-    //     ]
-    // }));r
+    navigation.navigate('StarterStack')
 
+    /*
     if(!user.name) {
         navigation.navigate('StarterStack')
         // mandar para StarterStack
@@ -37,6 +33,7 @@ const Preload = (props) => {
         //     ]
         // }));
     }
+    */
 
     mapStateToProps(user);
     return null;
