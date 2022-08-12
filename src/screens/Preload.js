@@ -7,8 +7,8 @@ const Preload = (props) => {
     //alert("[DEBUG]")
     const navigation = useNavigation();
     const route = useRoute();
-    const user = useSelector(state => state.user)
-    console.log("[DEBUG]" + user.name)
+    const user = useSelector(state => state.user);
+    console.log("[DEBUG]" + user.name);
 
     // TEMPORARIO
     // props.navigation.dispatch(StackActions.reset({
