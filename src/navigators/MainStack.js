@@ -17,6 +17,7 @@ const MainStack = createNativeStackNavigator();
                 <MainStack.Screen name="Preload" component={Preload} />
                 <MainStack.Screen name="StarterStack" component={StarterStack} />
                 <MainStack.Screen name="AppTab" component={AppTab} />
+                
             </MainStack.Navigator>
         );
     }

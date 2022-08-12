@@ -7,7 +7,7 @@ const Container = styled.SafeAreaView`
     justify-content: center;
     align-items: center;
     background-color: #FFF;
-    margin: 0 30px 0 30px;
+    padding: 0 30px 0 30px;
 `;
 
 const WelcomeText = styled.Text`
@@ -35,7 +35,7 @@ const ButtonText = styled.Text`
     color: #FFF;
 `;
 
-const Page = (props) => {
+const PageStarterIntro = (props) => {
 
     const start = () => {
         props.navigation.navigate('StarterName');
@@ -56,8 +56,4 @@ const Page = (props) => {
     );
 }
 
-Page.navigationOptions = {
-    header: null
-}
-
-export default Page;
+export default PageStarterIntro;

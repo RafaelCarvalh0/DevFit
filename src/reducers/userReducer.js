@@ -14,7 +14,7 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         SET_NAME: (state, action) => {
-            initialState.name = action.payload.name
+            state.name = action.payload.name
         }
     }
 });

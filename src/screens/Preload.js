@@ -16,7 +16,7 @@ const Preload = (props) => {
     //     actions: [
     //         NavigationActions.navigate({routeName:'StarterStack'})
     //     ]
-    // }));
+    // }));r
 
     if(!user.name) {
         navigation.navigate('StarterStack')
@@ -38,8 +38,7 @@ const Preload = (props) => {
         // }));
     }
 
-    mapStateToProps(user)
-    //alert(user.name)
+    mapStateToProps(user);
     return null;
 }
 
