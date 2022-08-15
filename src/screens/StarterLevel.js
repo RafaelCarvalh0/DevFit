@@ -45,7 +45,7 @@ const PageStarterDays = (props) => {
         }
 
         //Passando o parametro workoutDays via route.params.workoutDays lá na próxima pagina
-        navigation.navigate('StarterRecomendations', {
+        navigation.navigate('StarterRecommendations', {
             level: user.level
         });
     }

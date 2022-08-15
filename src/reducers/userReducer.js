@@ -9,6 +9,9 @@ const initialState = {
     dailyProgress:['2019-09-13', '2019-09-12']
 };
 
+//Clone do array myWorkouts
+//let myWorkouts = [...initialState.myWorkouts];
+
 export const userSlice = createSlice({
     name: 'user',
     initialState,
@@ -21,9 +24,17 @@ export const userSlice = createSlice({
         },
         SET_LEVEL: (state = initialState, action) => {
             state.level = action.payload.level
+        },
+        ADD_WORKOUT: (state = initialState, action) => {
+            if(state.myWorkouts.findIndex(i => i.id == action.payload.myWorkouts.id) < 0){
+                state.myWorkouts.push(action.payload.myWorkouts);
+            }
+        },
+        DEL_WORKOUT: (state = initialState, action) => {
+            state.myWorkouts = state.myWorkouts.filter(i => i.id != action.payload.myWorkouts.id);
         }
     }
 });
 
-export const { SET_NAME, SET_WORKOUTDAYS, SET_LEVEL } = userSlice.actions
+export const { SET_NAME, SET_WORKOUTDAYS, SET_LEVEL, ADD_WORKOUT, DEL_WORKOUT } = userSlice.actions
 export default userSlice.reducer

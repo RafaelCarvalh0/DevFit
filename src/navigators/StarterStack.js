@@ -6,6 +6,7 @@ import StarterIntro from '../screens/StarterIntro';
 import StarterName from '../screens/StarterName';
 import StarterDays from '../screens/StarterDays';
 import StarterLevel from '../screens/StarterLevel';
+import StarterRecommendations from '../screens/StarterRecommendations';
 
 const StarterStack = createNativeStackNavigator();
 
@@ -17,6 +18,7 @@ export default () => {
             <StarterStack.Screen name="StarterName" component={StarterName} />
             <StarterStack.Screen name="StarterDays" component={StarterDays} />
             <StarterStack.Screen name="StarterLevel" component={StarterLevel} />
+            <StarterStack.Screen name="StarterRecommendations" component={StarterRecommendations} />
 
         </StarterStack.Navigator>
     );
