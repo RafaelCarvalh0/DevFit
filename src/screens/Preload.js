@@ -1,5 +1,5 @@
 import { NavigationActions, StackActions} from "@react-navigation/native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { CommonActions, useNavigation, useRoute } from "@react-navigation/native";
 import { connect, useSelector } from "react-redux";
 
 const Preload = (props) => {
@@ -11,11 +11,27 @@ const Preload = (props) => {
     //console.log("[DEBUG]" + user.name);
 
     // TEMPORARIO
-    navigation.navigate('StarterStack')
+    // navigation.navigate('StarterStack')
 
-    /*
-    if(!user.name) {
-        navigation.navigate('StarterStack')
+    // const nextAction = () => {
+    //     navigation.dispatch(CommonActions.reset({
+    //         index: 0,
+    //         routes: [
+    //             {name: 'AppTab'}
+    //         ]
+    //     }));       
+    // }
+
+
+    if(!props.name) {
+        //navigation.navigate('StarterStack')
+
+        navigation.dispatch(CommonActions.reset({
+            index: 0,
+            routes: [
+                {name: 'StarterStack'}
+            ]
+        }));   
         // mandar para StarterStack
         // props.navigation.dispatch(StackActions.reset({
         //     index: 0,
@@ -24,16 +40,15 @@ const Preload = (props) => {
         //     ]
         // }));
     } else {
-        navigation.navigate('AppTab')
-        //mandar para AppTab
-        // props.navigation.dispatch(StackActions.reset({
-        //     index: 0,
-        //     actions: [
-        //         navigation.navigate('AppTab')
-        //     ]
-        // }));
+        //navigation.navigate('AppTab')
+        navigation.dispatch(CommonActions.reset({
+            index: 0,
+            routes: [
+                {name: 'AppTab'}
+            ]
+        }));   
     }
-    */
+    
 
     mapStateToProps(user);
     return null;
