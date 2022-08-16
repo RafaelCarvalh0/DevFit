@@ -8,7 +8,7 @@ import DefaultButton from "../components/DefaultButton";
 import { SET_NAME } from "../reducers/userReducer";
 
 
-const PageStarterName = (props) => {
+const PageStarterName = () => {
 
     const navigation = useNavigation();
     const route = useRoute();
@@ -20,12 +20,12 @@ const PageStarterName = (props) => {
     useLayoutEffect(() => {
 
         //Se o usuário já cadastrou o nome eu pulo essa tela, e ja envio ele pra próxima
-        if (user.name) {
-            navigation.navigate('StarterDays', {
-                name: user.name
-            });
+        // if (user.name) {
+        //     navigation.navigate('StarterDays', {
+        //         name: user.name
+        //     });
 
-        }
+        // }
 
         navigation.setOptions({
             title: '',
@@ -43,6 +43,8 @@ const PageStarterName = (props) => {
             Alert.alert("Você precisa de um nome!");
             return
         }
+
+        //console.log("Salvei o " + name)
         //Despacho o nome pro redux
         dispatch(SET_NAME({
             name: name

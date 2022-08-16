@@ -2,9 +2,8 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Alert } from 'react-native';
 
 import styled from "styled-components/native";
-import { connect, useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { CommonActions, useNavigation, useRoute } from "@react-navigation/native";
-import DefaultButton from "../components/DefaultButton";
 import { ADD_WORKOUT, DEL_WORKOUT } from "../reducers/userReducer";
 import workoutJson from '../presetWorkouts.json';
 import Workout from "../components/Workout";

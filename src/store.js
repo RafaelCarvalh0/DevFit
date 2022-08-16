@@ -5,11 +5,13 @@ import thunk from 'redux-thunk';
 
 import Reducers from './reducers/index';
 
-const persistedReducer = persistReducer({
+const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
     whitelist: ['userReducer']
-}, Reducers);
+};
+
+const persistedReducer = persistReducer(persistConfig, Reducers);
 
 const store = configureStore({
     reducer: persistedReducer,

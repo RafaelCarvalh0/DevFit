@@ -8,7 +8,7 @@ import DefaultButton from "../components/DefaultButton";
 import { SET_NAME, SET_WORKOUTDAYS } from "../reducers/userReducer";
 
 
-const PageStarterDays = (props) => {
+const PageStarterDays = () => {
 
     const navigation = useNavigation();
     const route = useRoute();
@@ -17,7 +17,7 @@ const PageStarterDays = (props) => {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
 
-    useLayoutEffect((flag) => {
+    useLayoutEffect(() => {
         //Se o usuário já cadastrou os dias eu pulo essa tela, e ja envio ele pra próxima
        
         //Tratar esse trecho depois para pular essa parte
@@ -40,7 +40,6 @@ const PageStarterDays = (props) => {
             })
 
     }, [user.workoutDays.length > 0]);
-
 
     const nextAction = () => {
 

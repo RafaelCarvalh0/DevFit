@@ -1,67 +1,38 @@
-import { NavigationActions, StackActions} from "@react-navigation/native";
-import { CommonActions, useNavigation, useRoute } from "@react-navigation/native";
-import { connect, useSelector } from "react-redux";
+import { CommonActions, useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
 
-const Preload = (props) => {
+const Preload = () => {
 
-    //alert("[DEBUG]")
     const navigation = useNavigation();
-    const route = useRoute();
     const user = useSelector(state => state.user);
     //console.log("[DEBUG]" + user.name);
-
-    // TEMPORARIO
-    // navigation.navigate('StarterStack')
-
-    // const nextAction = () => {
-    //     navigation.dispatch(CommonActions.reset({
-    //         index: 0,
-    //         routes: [
-    //             {name: 'AppTab'}
-    //         ]
-    //     }));       
-    // }
-
-
-    if(!props.name) {
-        //navigation.navigate('StarterStack')
-
+    console.log("estou em Preload")
+    if (!props.name) {
+        console.log("Primeiro if " + props.name)
         navigation.dispatch(CommonActions.reset({
             index: 0,
             routes: [
-                {name: 'StarterStack'}
+                { name: 'StarterStack' }
             ]
-        }));   
-        // mandar para StarterStack
-        // props.navigation.dispatch(StackActions.reset({
-        //     index: 0,
-        //     actions: [
-                
-        //     ]
-        // }));
+        }));
+
     } else {
-        //navigation.navigate('AppTab')
+        console.log("Segundo if " + props.name)
         navigation.dispatch(CommonActions.reset({
             index: 0,
             routes: [
-                {name: 'AppTab'}
+                { name: 'AppTab' }
             ]
-        }));   
-    }
-    
+        }));
 
-    mapStateToProps(user);
+        return {
+            name: user.name
+        };
+    }
+
     return null;
 }
 
 
 
-const mapStateToProps = (user) => {
-    
-    //alert(user.name)
-    return {
-        user    
-    };
-}
-
-export default connect(mapStateToProps)(Preload);
+export default Preload;

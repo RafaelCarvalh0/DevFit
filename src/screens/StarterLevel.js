@@ -8,11 +8,10 @@ import DefaultButton from "../components/DefaultButton";
 import { SET_NAME, SET_WORKOUTDAYS, SET_LEVEL } from "../reducers/userReducer";
 
 
-const PageStarterDays = (props) => {
+const PageStarterDays = () => {
 
     const navigation = useNavigation();
     const route = useRoute();
-    //const user = useSelector(state => state.user);
     const user = useSelector(state => state.user);
     const dispatch = useDispatch();
     const [name, setName] = useState('');
