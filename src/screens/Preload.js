@@ -1,14 +1,15 @@
 import { CommonActions, useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 
-const Preload = () => {
+const Preload = (props) => {
 
     const navigation = useNavigation();
     const user = useSelector(state => state.user);
     //console.log("[DEBUG]" + user.name);
-    console.log("estou em Preload")
-    if (!props.name) {
-        console.log("Primeiro if " + props.name)
+
+    //Deixar WorkoutDays == null faz com que o App já saiba que esse usuário 
+    //Já passou pelas etapas de configurações
+    if (!user.name && !user.workoutDays == null) {
         navigation.dispatch(CommonActions.reset({
             index: 0,
             routes: [
@@ -17,20 +18,13 @@ const Preload = () => {
         }));
 
     } else {
-        console.log("Segundo if " + props.name)
         navigation.dispatch(CommonActions.reset({
             index: 0,
             routes: [
                 { name: 'AppTab' }
             ]
         }));
-
-        return {
-            name: user.name
-        };
     }
-
-    return null;
 }
 
 

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { createAppContainer } from 'react-navigation';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Preload from '../screens/Preload';

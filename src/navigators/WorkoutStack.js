@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 export default () => {
     return (
         <Container>
-            <Texto>Página Home</Texto>
+            <Texto>Página WorkoutStack</Texto>
         </Container>
     );
 }
