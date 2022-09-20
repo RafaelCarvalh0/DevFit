@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 
 import styled from "styled-components/native";
 import { useSelector, useDispatch } from "react-redux";
@@ -44,14 +44,26 @@ const PageStarterDays = (props) => {
     let today = new Date();
 
     const [selectedMonth, setSelectedMonth] = useState(today.getMonth());
+    const [selectedDay, setSelectedDay] = useState(today.getDate());
 
     return (
         <Container>
             <HomeMonthScroll 
-
+                selectedMonth={selectedMonth}
+                setSelectedMonth={setSelectedMonth}
             />
-            <HomeDaysScroll />
+            <HomeDaysScroll
+                selectedMonth={selectedMonth}
+                selectedDay={selectedDay}
+                setSelectedDay={setSelectedDay}
+                
+                dailyProgress={user?.dailyProgress}
+                workoutDays={user?.workoutDays}
+            />
             <HomeDayStatus />
+
+            <LegendText>Mês: {selectedMonth}</LegendText>
+            <LegendText>Dia: {selectedDay}</LegendText>
 
             <Legend>
                 <LegendText>Legenda:</LegendText>
@@ -102,13 +114,13 @@ const ConfigButtonImage = styled.Image`
 
 const Legend = styled.View`
     width: 90%;
+    height: 75%;
     align-items: flex-start;
     margin-top: 30px;
 `;
 
 const LegendText = styled.Text`
     color: #555;
-
 `;
 
 const LegendItem = styled.View`

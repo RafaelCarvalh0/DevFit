@@ -6,13 +6,10 @@ const initialState = {
     workoutDays:[], //0-6 (semana começa no domingo)
     myWorkouts:[],
     lastWorkout:'', //ID
-    dailyProgress:['2019-09-13', '2019-09-12']
+    dailyProgress:['2022-09-13', '2022-09-12']
 };
 
-//Clone do array myWorkouts
-//let myWorkouts = [...initialState.myWorkouts];
-
-export const userSlice = createSlice({
+const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {

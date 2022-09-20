@@ -39,24 +39,26 @@ const PageStarterDays = () => {
                 },
             })
 
-    }, [user.workoutDays.length > 0]);
+    }, [user?.workoutDays.length > 0]);
 
     const nextAction = () => {
 
-        if (!route.params.name || !user.workoutDays.length) {
+        if (!route?.params.name || !user?.workoutDays.length) {
             Alert.alert("Você precisa treinar pelomenos 1 dia!");
             return
         }
 
         //Passando o parametro workoutDays via route.params.workoutDays lá na próxima pagina
         navigation.navigate('StarterLevel', {
-            workoutDays: user.workoutDays
+            workoutDays: user?.workoutDays
         });
     }
 
 
     const toggleDay = (dia) => {
-        let newWorkoutDays = [...user.workoutDays];
+        console.log(...user.workoutDays)
+        //alert(...user.workoutDays)
+        let newWorkoutDays = [...user?.workoutDays];
 
         if(!user.workoutDays.includes(dia)) {
             //inserir
@@ -78,25 +80,25 @@ const PageStarterDays = () => {
             <HeaderText>Opa, <BoldText>{firstName}</BoldText>, tudo bem?</HeaderText>
             <HeaderText>Quais <BoldText>dias da semana</BoldText> você pretende treinar?</HeaderText>
             <DaysArea>
-                <DefaultButton bgColor={user.workoutDays.includes(1)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(1)}>
+                <DefaultButton bgColor={user?.workoutDays.includes(1)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(1)}>
                     <Text>Segunda</Text>
                 </DefaultButton>
-                <DefaultButton bgColor={user.workoutDays.includes(2)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(2)} >
+                <DefaultButton bgColor={user?.workoutDays.includes(2)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(2)} >
                     <Text>Terça</Text>
                 </DefaultButton>
-                <DefaultButton bgColor={user.workoutDays.includes(3)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(3)} >
+                <DefaultButton bgColor={user?.workoutDays.includes(3)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(3)} >
                     <Text>Quarta</Text>
                 </DefaultButton>
-                <DefaultButton bgColor={user.workoutDays.includes(4)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(4)} >
+                <DefaultButton bgColor={user?.workoutDays.includes(4)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(4)} >
                     <Text>Quinta</Text>
                 </DefaultButton>
-                <DefaultButton bgColor={user.workoutDays.includes(5)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(5)} >
+                <DefaultButton bgColor={user?.workoutDays.includes(5)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(5)} >
                     <Text>Sexta</Text>
                 </DefaultButton>
-                <DefaultButton bgColor={user.workoutDays.includes(6)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(6)} >
+                <DefaultButton bgColor={user?.workoutDays.includes(6)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(6)} >
                     <Text>Sábado</Text>
                 </DefaultButton>
-                <DefaultButton bgColor={user.workoutDays.includes(0)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(0)} >
+                <DefaultButton bgColor={user?.workoutDays.includes(0)?'#A5E8BC':false} width={100+'px'} style={{marginBottom: 20}} underlayColor="#CCC" onPress={() => toggleDay(0)} >
                     <Text>Domingo</Text>
                 </DefaultButton>
             </DaysArea>
